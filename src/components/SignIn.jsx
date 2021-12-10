@@ -29,9 +29,10 @@ const SignIn = () => {
     }
 
     const validate = formValues => {
-
+        
         const errors = {}
         const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
         if (!formValues.email) {
             errors.email = "Email is Required"
         }
@@ -41,7 +42,7 @@ const SignIn = () => {
         if (!formValues.password) {
             errors.password = "Password is Required"
         }
-
+    
         // Check if there are no errors
         if (Object.keys(errors).length === 0) {
 
@@ -58,9 +59,11 @@ const SignIn = () => {
 
     return (
         <section id="form">
-            <div className="form text-white d-flex flex-column justify-content-center align-items-center">
-                <h1 className="mb-5">Sign In Form</h1>
-                <h1>{signInErrors}</h1>
+            <div className="group d-flex justify-content-center align-items-center">
+                <span style={{ fontSize: "2rem", padding: "1rem" }}>Sign In Form</span>
+            </div>
+            <div className="group form d-flex flex-column justify-content-center align-items-center">
+                <h1 className="form-errors">{signInErrors}</h1>
                 <form method="post" onSubmit={handleSubmit} name="form">
                     <label htmlFor="email">Email</label>
                     <div>
@@ -68,7 +71,7 @@ const SignIn = () => {
                             type="text"
                             name="email"
                             id = "email"
-                            placeholder="email"
+                            placeholder="Email"
                             values={formValues.email}
                             onChange={handleChange}
                         />
@@ -80,7 +83,7 @@ const SignIn = () => {
                             type="password"
                             name="password"
                             id = "password"    
-                            placeholder="password"
+                            placeholder="Password"
                             values={formValues.password}
                             onChange={handleChange}
                         />

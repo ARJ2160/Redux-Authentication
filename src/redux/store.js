@@ -29,8 +29,6 @@
 
 
 import { configureStore } from "@reduxjs/toolkit";
-// import signInSlice from "./signInSlice"
-// import signUpSlice from "./signUpSlice"
 import {
     persistStore,
     persistReducer,
@@ -44,7 +42,6 @@ import {
 import storage from 'redux-persist/lib/storage'
 import rootReducer from "./reducers";
 
-  
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -54,10 +51,6 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    // reducer: {
-    //     signIn: signInSlice,
-    //     signUp: signUpSlice
-    // }
     reducer: persistedReducer,
     middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { current } from "immer"
+import { v4 as uuidv4 } from 'uuid';
+
+var md5 = require("md5");
 
 const initialState = []
 let flag = false
 let signUpErrors = ""
 let signInErrors = ""
+let signInSuccess = ""
 let userName = ""
 
 const signUpSlice = createSlice({
@@ -20,12 +25,14 @@ const signUpSlice = createSlice({
             }
             else {
                 userName = firstName
+                signInSuccess= "Sign Up Successfull"
                 flag = true
                 return [
                     ...state,
                     {
+                        id: uuidv4(),
                         email,
-                        password,
+                        password: md5(password),
                         firstName,
                         lastName
                     }
@@ -35,15 +42,12 @@ const signUpSlice = createSlice({
         checksignIn: (state = initialState, { payload }) => {
 
             const { email, password } = payload.formValues
-            const foundMail = state.find(mail => mail.email === email)
-            if (foundMail) {
-                if (state.find(pass => pass.password === password)) {
-                    userName = state.find(mail => {
-                        if (mail.email === email)
-                            return mail.firstName
-                        return null
-                    })
+            if (state.find(mail => mail.email === email)) {
+                if (state.find(pass => pass.password === md5(password)))
+                {
+                    userName = current(state).find(mail => mail.email === email).firstName
                     flag = true
+                    signInSuccess= "Sign In Successfull"
                     return state
                 } else {
                     flag = false
@@ -59,4 +63,4 @@ const signUpSlice = createSlice({
 
 export const { signUp, checksignIn } = signUpSlice.actions
 export default signUpSlice.reducer
-export { flag, signInErrors, signUpErrors, userName }
+export { flag, signInErrors, signUpErrors, signInSuccess, userName }

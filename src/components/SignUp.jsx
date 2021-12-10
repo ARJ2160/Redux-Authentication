@@ -6,7 +6,12 @@ import { signUpErrors, flag } from "../redux/signUpSlice"
 
 const Signup = () => {
 
-    const [formValues, setFormValue] = useState("")
+    const initialState = {
+        email: '',
+        password: '',
+    }
+
+    const [formValues, setFormValue] = useState(initialState)
     const [formErrors, setFormErrors] = useState({})
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -55,49 +60,55 @@ const Signup = () => {
     }
     return (
         <section id="form">
-            <div className="form text-white d-flex flex-column justify-content-center align-items-center">
-                <h1 className="mb-5">Sign Up Form</h1>
+            <div className="group d-flex justify-content-center align-items-center">
+                <span style={{ fontSize: "2rem", padding: "1rem" }}>Sign Up Form</span>
+            </div>
+            <div className="form d-flex flex-column justify-content-center align-items-center">
                 <h1>Hello {formValues.firstName}</h1>
-                <h1>{signUpErrors}</h1>
+                <h1 className="form-errors">{signUpErrors}</h1>
                 <form method="post" onSubmit={handleSubmit} name="form">
-                    <label htmlFor="email">First Name</label>
+                    <label htmlFor="email" className="group">First Name</label>
                     <div>
                         <input
                             type="text"
                             name="firstName"
-                            placeholder="firstName"
+                            placeholder="First Name"
+                            values={formValues.firstName}
                             onChange={handleChange}
                         />
                     </div>
                     <p className="form-errors">{formErrors.firstName}</p>
-                    <label htmlFor="email">Last Name</label>
+                    <label htmlFor="email" className="group">Last Name</label>
                     <div>
                         <input
                             type="text"
                             name="lastName"
-                            placeholder="lastName"
+                            placeholder="Last Name"
+                            values={formValues.lastName}
                             onChange={handleChange}
                         />
                     </div>
                     <p className="form-errors">{formErrors.lastName}</p>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className="group">Email</label>
                     <div>
                         <input
                             type="text"
                             name="email"
                             id = "email"
-                            placeholder="email"
+                            placeholder="Email"
+                            values={formValues.email}
                             onChange={handleChange}
                         />
                     </div>
                     <p className="form-errors">{formErrors.email}</p>
-                    <label htmlFor="password">Password</label>    
+                    <label htmlFor="password" className="group">Password</label>    
                     <div>
                         <input
                             type="password"
                             name="password"
                             id = "password"    
-                            placeholder="password"
+                            placeholder="Password"
+                            values={formValues.password}
                             onChange={handleChange}
                         />
                     </div>

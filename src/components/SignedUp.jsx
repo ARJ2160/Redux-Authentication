@@ -1,13 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import  {userName} from "../redux/signUpSlice"
+import { signInSuccess, userName } from "../redux/signUpSlice"
 
 const SignedUp = () => {
 
     return (
         <div className="d-flex align-items-center justify-content-center flex-column">
+            {/* {console.log(signInSuccess)}
+            {
+                setTimeout(() => {
+                    <span className="text-white">{signInSuccess}</span>
+                }, 3000)
+            } */}
+            <div className="p-4">
+                <h1 className="text-white">{signInSuccess}</h1>
+            </div>
             <h1 className="text-white">Welcome {userName}</h1>
-            <Link to ="/">
+            <Link to ="/signedout">
                 <button className="form-btn">
                     Log Out
                 </button>
