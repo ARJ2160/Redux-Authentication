@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 import { current } from "immer"
 import { v4 as uuidv4 } from 'uuid';
 
-var md5 = require("md5");
-
 const initialState = []
+const md5 = require("md5");
 let flag = false
 let signUpErrors = ""
 let signInErrors = ""
