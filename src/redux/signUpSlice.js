@@ -60,6 +60,6 @@ const signUpSlice = createSlice({
     }
 })
 
-export const { signUp, checksignIn } = signUpSlice.actions
+export const { signUp, checksignIn, resetState } = signUpSlice.actions
 export default signUpSlice.reducer
 export { flag, signInErrors, signUpErrors, signInSuccess, userName }

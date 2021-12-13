@@ -1,33 +1,3 @@
-// import { combineReducers, createStore } from "redux"
-// import { signInReducer, signUpReducer } from "./reducers"
-
-
-// const rootReducer = combineReducers({
-//     signIn: signInReducer,
-//     signUp: signUpReducer
-// })
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
-
-// export const store = createStore(
-//     persistedReducer,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-// )
-
-// export const persistor = persistStore(store)
-
-// import { configureStore } from "@reduxjs/toolkit";
-// import signInSlice from "./signInSlice"
-// import signUpSlice from "./signUpSlice"
-
-// export const store = configureStore({
-//     reducer: {
-//         signIn: signInSlice,
-//         signUp: signUpSlice
-//     }
-// })
-
-
 import { configureStore } from "@reduxjs/toolkit";
 import {
     persistStore,
@@ -39,6 +9,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist'
+import purgeStoredState from "redux-persist/es/purgeStoredState";
 import storage from 'redux-persist/lib/storage'
 import rootReducer from "./reducers";
 
@@ -61,3 +32,4 @@ export const store = configureStore({
 })
 
 export let persistor = persistStore(store)
+purgeStoredState(persistConfig)

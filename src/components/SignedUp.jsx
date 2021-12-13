@@ -5,7 +5,7 @@ import { signInSuccess, userName } from "../redux/signUpSlice"
 const SignedUp = () => {
 
     return (
-        <div className="d-flex align-items-center justify-content-center flex-column">
+        <div className="d-flex align-items-center justify-content-center flex-column side-padding">
             {/* {console.log(signInSuccess)}
             {
                 setTimeout(() => {

@@ -59,16 +59,16 @@ const Signup = () => {
         return errors
     }
     return (
-        <section id="form">
+        <section id="form" className='side-padding'>
             <div className="group d-flex justify-content-center align-items-center">
                 <span style={{ fontSize: "2rem", padding: "1rem" }}>Sign Up Form</span>
             </div>
-            <div className="form d-flex flex-column justify-content-center align-items-center">
+            <div className="group form d-flex flex-column justify-content-center align-items-center">
                 <h1>Hello {formValues.firstName}</h1>
                 <h1 className="form-errors">{signUpErrors}</h1>
                 <form method="post" onSubmit={handleSubmit} name="form">
                     <label htmlFor="email" className="group">First Name</label>
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="text"
                             name="firstName"
@@ -79,7 +79,7 @@ const Signup = () => {
                     </div>
                     <p className="form-errors">{formErrors.firstName}</p>
                     <label htmlFor="email" className="group">Last Name</label>
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="text"
                             name="lastName"
@@ -90,7 +90,7 @@ const Signup = () => {
                     </div>
                     <p className="form-errors">{formErrors.lastName}</p>
                     <label htmlFor="email" className="group">Email</label>
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="text"
                             name="email"
@@ -102,7 +102,7 @@ const Signup = () => {
                     </div>
                     <p className="form-errors">{formErrors.email}</p>
                     <label htmlFor="password" className="group">Password</label>    
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="password"
                             name="password"
@@ -119,7 +119,7 @@ const Signup = () => {
                     >Sign Up</button>
                 </form>
                 <p className="mt-5">Already have an Account? <span><a href="/signin">Sign In</a></span></p>
-            </div>
+                </div>
         </section>
     )
 }

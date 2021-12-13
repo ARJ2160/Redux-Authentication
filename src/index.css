@@ -15,13 +15,19 @@ body{
     /* background-image: url("https://media2.giphy.com/media/dAWZiSMbMvObDWP3aA/200w.gif?cid=82a1493byp37003a7qbmajj1l5tg7mcliwmw1twdt960cw2l&rid=200w.gif&ct=g"); */
     background-color: #0f0e17 !important;
 }
+.side-padding{
+    padding: 30px;
+}
 #form {
     color :#a7a9be !important;
 }
 .form{
     padding: 0.5rem;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     border: none;
+}
+.form-divs input{
+    width: 45vw;
 }
 .form-btn {
     background: #ff8906;
@@ -32,7 +38,7 @@ body{
 }
 .form-errors{
     color: red;
-    font-size: 1rem; 
+    font-size: 0.8rem; 
 }
 .group{
     color: #e53170;

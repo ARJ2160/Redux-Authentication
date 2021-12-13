@@ -58,7 +58,7 @@ const SignIn = () => {
     }
 
     return (
-        <section id="form">
+        <section id="form" className='side-padding'>
             <div className="group d-flex justify-content-center align-items-center">
                 <span style={{ fontSize: "2rem", padding: "1rem" }}>Sign In Form</span>
             </div>
@@ -66,7 +66,7 @@ const SignIn = () => {
                 <h1 className="form-errors">{signInErrors}</h1>
                 <form method="post" onSubmit={handleSubmit} name="form">
                     <label htmlFor="email">Email</label>
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="text"
                             name="email"
@@ -78,7 +78,7 @@ const SignIn = () => {
                     </div>
                     <p className="form-errors">{formErrors.email}</p>
                     <label htmlFor="password">Password</label>    
-                    <div>
+                    <div className="form-divs">
                         <input
                             type="password"
                             name="password"
